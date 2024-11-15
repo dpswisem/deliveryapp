@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Delivery" class="action-bar"/>
+    
+    <GridLayout rows="*, auto">
+        <!-- Offline State -->
+        <StackLayout row="0" visibility="{{ !isOnline ? 'visible' : 'collapsed' }}" class="offline-container">
+            <Image src="~/images/delivery-driver.png" stretch="aspectFit" class="offline-image"/>
+            <Label text="To accept orders set yourself" class="offline-title"/>
+            <Label text="Online and start Earning" class="offline-subtitle"/>
+        </StackLayout>
+
+        <!-- Online State with Map -->
+        <StackLayout row="0" visibility="{{ isOnline ? 'visible' : 'collapsed' }}">
+            <!-- Map will be added here -->
+            <Label text="Online Mode" class="text-xl text-center p-4"/>
+            <Label text="{{ 'Location: ' + currentLocation.latitude + ', ' + currentLocation.longitude }}" 
+                   class="text-center" textWrap="true"/>
+        </StackLayout>
+
+        <!-- Swipeable Status Bar -->
+        <GridLayout row="1" class="delivery-status-bar">
+            <GridLayout class="delivery-status-slider {{ isOnline ? 'delivery-online' : 'delivery-offline' }}"
+                       pan="{{ onStatusPan }}"
+                       tap="{{ toggleOnlineStatus }}">
+                <StackLayout orientation="horizontal" class="delivery-status-content">
+                    <Label text="{{ isOnline ? '←' : '→' }}" class="delivery-status-arrow"/>
+                    <Label text="{{ isOnline ? 'Swipe to Offline' : 'Swipe to Online' }}" 
+                           class="delivery-status-text"/>
+                </StackLayout>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+</Page>

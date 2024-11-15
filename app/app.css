@@ -1,0 +1,189 @@
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
+
+/* Common styles */
+.page {
+    background-color: #f5f5f5;
+}
+
+/* Order Card Styles */
+.order-card {
+    background-color: white;
+    border-radius: 12;
+    margin: 8 16;
+    padding: 16;
+    elevation: 2;
+}
+
+.order-header {
+    font-size: 18;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.order-amount {
+    font-size: 18;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.order-id {
+    font-size: 14;
+    color: #666666;
+}
+
+.order-time {
+    font-size: 14;
+    color: #666666;
+}
+
+.order-status {
+    font-size: 14;
+    padding: 4 12;
+    border-radius: 16;
+    margin: 8 0;
+    text-transform: capitalize;
+}
+
+.status-preparing {
+    background-color: #FFF3E0;
+    color: #E65100;
+}
+
+.status-in-process {
+    background-color: #E3F2FD;
+    color: #1565C0;
+}
+
+.status-cancelled {
+    background-color: #FFEBEE;
+    color: #C62828;
+}
+
+.status-delivered {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+}
+
+/* Button Styles */
+.btn-cancel, .btn-track, .btn-decline, .btn-accept {
+    height: 40;
+    font-size: 14;
+    font-weight: 500;
+    border-radius: 20;
+    padding: 0 16;
+}
+
+.btn-cancel, .btn-decline {
+    background-color: #FFEBEE;
+    color: #C62828;
+    border-color: #FFCDD2;
+}
+
+.btn-track, .btn-accept {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border-color: #C8E6C9;
+}
+
+/* Empty State */
+.empty-state {
+    margin-top: 100;
+    align-items: center;
+}
+
+.empty-state-icon {
+    font-size: 48;
+    margin-bottom: 16;
+}
+
+.empty-state-text {
+    color: #666666;
+    font-size: 16;
+    text-align: center;
+}
+
+/* Delivery Status Bar */
+.delivery-status-bar {
+    height: 60;
+    margin: 16;
+    margin-bottom: 80;
+}
+
+.delivery-status-slider {
+    height: 56;
+    border-radius: 28;
+    padding: 0;
+}
+
+.delivery-status-content {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8;
+}
+
+.delivery-status-text {
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+    font-size: 16;
+    font-weight: 500;
+    padding-left: 32;
+}
+
+.delivery-status-arrow {
+    width: 40;
+    height: 40;
+    border-radius: 20;
+    background-color: white;
+    color: #4CAF50;
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+}
+
+.delivery-offline {
+    background-color: #FF5252;
+}
+
+.delivery-online {
+    background-color: #4CAF50;
+}
+
+/* Offline State */
+.offline-container {
+    padding: 20;
+}
+
+.offline-image {
+    width: 80%;
+    height: 300;
+    margin: 20 10%;
+}
+
+.offline-title {
+    color: #1a1a1a;
+    font-size: 24;
+    font-weight: bold;
+    text-align: center;
+    margin: 16 0;
+}
+
+.offline-subtitle {
+    color: #666666;
+    font-size: 16;
+    text-align: center;
+    margin-bottom: 32;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    background-color: white;
+    border-top-width: 1;
+    border-top-color: #e0e0e0;
+}
+
+.selected-tab {
+    color: #4CAF50;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <GridLayout rows="*, auto">
+        <Frame row="0" defaultPage="{{ currentPage }}"/>
+        
+        <GridLayout row="1" class="bottom-nav" height="56">
+            <GridLayout columns="*, *, *, *">
+                <StackLayout col="0" tap="{{ onTabTap }}" data-tab="0" class="{{ selectedTabIndex === 0 ? 'selected-tab' : '' }}">
+                    <Label text="🚚" class="text-center text-lg"/>
+                    <Label text="Delivery" class="text-center text-xs"/>
+                </StackLayout>
+                <StackLayout col="1" tap="{{ onTabTap }}" data-tab="1" class="{{ selectedTabIndex === 1 ? 'selected-tab' : '' }}">
+                    <Label text="📦" class="text-center text-lg"/>
+                    <Label text="New Orders" class="text-center text-xs"/>
+                </StackLayout>
+                <StackLayout col="2" tap="{{ onTabTap }}" data-tab="2" class="{{ selectedTabIndex === 2 ? 'selected-tab' : '' }}">
+                    <Label text="📋" class="text-center text-lg"/>
+                    <Label text="My Orders" class="text-center text-xs"/>
+                </StackLayout>
+                <StackLayout col="3" tap="{{ onTabTap }}" data-tab="3" class="{{ selectedTabIndex === 3 ? 'selected-tab' : '' }}">
+                    <Label text="👤" class="text-center text-lg"/>
+                    <Label text="Account" class="text-center text-xs"/>
+                </StackLayout>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+</Page>

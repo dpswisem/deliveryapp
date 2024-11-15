@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="My Orders" class="action-bar">
+        <StackLayout orientation="horizontal" horizontalAlignment="right">
+            <Label text="{{ activeOrdersCount + ' Active' }}" 
+                   class="text-sm font-medium" 
+                   style="color: #4CAF50; background-color: #E8F5E9; padding: 4 12; border-radius: 16; margin-right: 16;"/>
+        </StackLayout>
+    </ActionBar>
+    
+    <GridLayout>
+        <ListView items="{{ orders }}" separatorColor="transparent" height="100%">
+            <ListView.itemTemplate>
+                <GridLayout class="order-card">
+                    <StackLayout>
+                        <!-- Restaurant Info -->
+                        <GridLayout columns="*, auto" class="mb-2">
+                            <Label col="0" text="{{ restaurantName }}" class="order-header"/>
+                            <Label col="1" text="{{ '$' + amount }}" class="order-amount"/>
+                        </GridLayout>
+                        
+                        <!-- Order Details -->
+                        <GridLayout columns="auto, *, auto" class="mb-2">
+                            <Label col="0" text="{{ 'Order #' + id }}" class="order-id"/>
+                            <Label col="2" text="{{ timestamp }}" class="order-time" horizontalAlignment="right"/>
+                        </GridLayout>
+                        
+                        <!-- Status Badge -->
+                        <Label text="{{ status }}" class="order-status status-{{ status }}"/>
+                        
+                        <!-- Action Buttons -->
+                        <GridLayout columns="*, *" class="order-actions" 
+                                   visibility="{{ canCancel || canTrack ? 'visible' : 'collapsed' }}">
+                            <Button col="0" text="Cancel" tap="{{ $parent.onCancelTap }}"
+                                    class="btn-cancel" margin="0 4 0 0"
+                                    visibility="{{ canCancel ? 'visible' : 'collapsed' }}"/>
+                            <Button col="1" text="Track" tap="{{ $parent.onTrackTap }}"
+                                    class="btn-track" margin="0 0 0 4"
+                                    visibility="{{ canTrack ? 'visible' : 'collapsed' }}"/>
+                        </GridLayout>
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+            
+            <ListView.emptyTemplate>
+                <StackLayout class="empty-state">
+                    <Label text="📋" class="empty-state-icon"/>
+                    <Label text="No orders yet" class="empty-state-text"/>
+                    <Label text="Your active orders will appear here" class="empty-state-text" style="margin-top: 8;"/>
+                </StackLayout>
+            </ListView.emptyTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

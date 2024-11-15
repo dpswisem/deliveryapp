@@ -1,0 +1,24 @@
+{
+  "name": "delivery-driver-app",
+  "main": "app/app.ts",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nativescript-community/ui-material-core": "~7.1.4",
+    "@nativescript-community/ui-material-ripple": "~7.1.4",
+    "@nativescript-community/ui-material-slider": "~7.1.4",
+    "@nativescript/core": "~8.4.0",
+    "@nativescript/geolocation": "~8.2.0",
+    "@nativescript/google-maps": "~1.6.0",
+    "@nativescript/theme": "~3.0.2"
+  },
+  "devDependencies": {
+    "@nativescript/android": "8.4.0",
+    "@nativescript/ios": "8.4.0",
+    "@nativescript/preview-cli": "^1.0.13",
+    "@nativescript/stackblitz": "0.0.7",
+    "@nativescript/types": "~8.4.0",
+    "@nativescript/webpack": "~5.0.12",
+    "typescript": "~4.8.4"
+  }
+}

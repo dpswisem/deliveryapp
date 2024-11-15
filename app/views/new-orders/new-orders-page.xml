@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="New Orders" class="action-bar">
+        <StackLayout orientation="horizontal" horizontalAlignment="right">
+            <Label text="{{ activeOrdersCount + ' Active' }}" 
+                   class="text-sm font-medium" 
+                   style="color: #4CAF50; background-color: #E8F5E9; padding: 4 12; border-radius: 16; margin-right: 16;"/>
+        </StackLayout>
+    </ActionBar>
+    
+    <GridLayout>
+        <ListView items="{{ newOrders }}" separatorColor="transparent" height="100%">
+            <ListView.itemTemplate>
+                <GridLayout class="order-card">
+                    <StackLayout>
+                        <!-- Restaurant Info -->
+                        <GridLayout columns="*, auto" class="mb-2">
+                            <Label col="0" text="{{ restaurantName }}" class="order-header"/>
+                            <Label col="1" text="{{ '$' + amount }}" class="order-amount"/>
+                        </GridLayout>
+                        
+                        <!-- Order Details -->
+                        <GridLayout columns="auto, *, auto" class="mb-2">
+                            <Label col="0" text="{{ 'Order #' + id }}" class="order-id"/>
+                            <Label col="2" text="{{ timestamp }}" class="order-time" horizontalAlignment="right"/>
+                        </GridLayout>
+                        
+                        <!-- Delivery Info -->
+                        <GridLayout columns="auto, *" rows="auto, auto" class="mb-3">
+                            <Label row="0" col="0" text="📍" class="order-detail-icon"/>
+                            <Label row="0" col="1" text="{{ distance }}" class="distance-badge"/>
+                            
+                            <Label row="1" col="0" text="⏱" class="order-detail-icon"/>
+                            <Label row="1" col="1" text="{{ estimatedTime }}" class="estimated-time"/>
+                        </GridLayout>
+                        
+                        <!-- Items Summary -->
+                        <Label text="{{ itemsSummary }}" class="order-detail" textWrap="true"/>
+                        
+                        <!-- Action Buttons -->
+                        <GridLayout columns="*, *" class="order-actions" margin="12 0 0 0">
+                            <Button col="0" text="Decline" tap="{{ $parent.onDeclineTap }}"
+                                    class="btn-decline" margin="0 4 0 0"/>
+                            <Button col="1" text="Accept" tap="{{ $parent.onAcceptTap }}"
+                                    class="btn-accept" margin="0 0 0 4"/>
+                        </GridLayout>
+                    </StackLayout>
+                </GridLayout>
+            </ListView.itemTemplate>
+            
+            <ListView.emptyTemplate>
+                <StackLayout class="empty-state">
+                    <Label text="📦" class="empty-state-icon"/>
+                    <Label text="No new orders available" class="empty-state-text"/>
+                    <Label text="New orders will appear here" class="empty-state-text" style="margin-top: 8;"/>
+                </StackLayout>
+            </ListView.emptyTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

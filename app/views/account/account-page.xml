@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      xmlns:mdc="@nativescript-community/ui-material-components"
+      navigatingTo="onNavigatingTo">
+    <ActionBar title="Account" />
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <Image src="{{ profileImage }}" class="h-24 w-24 rounded-full mb-4" />
+            
+            <Label text="{{ driverName }}" class="text-2xl font-bold mb-2" />
+            <Label text="{{ email }}" class="text-gray-600 mb-4" />
+            
+            <StackLayout class="border-t border-gray-200 pt-4">
+                <mdc:Button text="Edit Profile" tap="{{ onEditProfile }}" 
+                           variant="text" class="btn-primary mb-2" />
+                <mdc:Button text="Settings" tap="{{ onSettings }}" 
+                           variant="text" class="btn-primary mb-2" />
+                <mdc:Button text="Help and Support" tap="{{ onSupport }}" 
+                           variant="text" class="btn-primary mb-2" />
+                <mdc:Button text="Logout" tap="{{ onLogout }}" 
+                           variant="contained" class="btn-danger" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

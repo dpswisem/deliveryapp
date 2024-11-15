@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:mdc="@nativescript-community/ui-material-components"
+      navigatingTo="onNavigatingTo">
+    <ActionBar title="Delivery Driver" />
+    
+    <GridLayout rows="*">
+        <StackLayout class="p-4" verticalAlignment="middle">
+            <mdc:CardView elevation="2" class="p-4 m-2">
+                <StackLayout>
+                    <Label text="Driver Status" class="text-2xl font-bold text-center mb-4" />
+                    <Label text="{{ isOnline ? 'You are Online' : 'You are Offline' }}" 
+                           class="text-lg text-center mb-8" />
+                    <Button text="{{ isOnline ? 'Go Offline' : 'Go Online' }}"
+                           tap="{{ toggleOnlineStatus }}"
+                           class="{{ isOnline ? 'btn-danger' : 'btn-primary' }} mx-8" />
+                </StackLayout>
+            </mdc:CardView>
+        </StackLayout>
+    </GridLayout>
+</Page>

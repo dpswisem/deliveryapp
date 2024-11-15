@@ -1,0 +1,20 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Track Order">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ goBack }}" />
+    </ActionBar>
+    
+    <GridLayout rows="*, auto">
+        <StackLayout row="0" class="bg-gray-100 p-4">
+            <Label text="Current Location:" class="font-bold mb-2"/>
+            <Label text="{{ currentLocation.latitude + ', ' + currentLocation.longitude }}" 
+                   class="text-gray-600" />
+        </StackLayout>
+        
+        <StackLayout row="1" class="p-4 bg-white">
+            <Label text="{{ order.restaurantName }}" class="text-xl font-bold mb-2"/>
+            <Label text="{{ 'Order ID: ' + order.id }}" class="text-gray-600"/>
+            <Label text="{{ 'Status: ' + order.status }}" class="font-medium"/>
+            <Button text="Navigate" tap="{{ startNavigation }}" class="btn-primary mt-2"/>
+        </StackLayout>
+    </GridLayout>
+</Page>
